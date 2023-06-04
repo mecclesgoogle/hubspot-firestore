@@ -1,0 +1,16 @@
+{
+  "name": "hubspot_webhook",
+  "version": "1.0.0",
+  "description": "A server app that processes incoming calls from Hubspot webhooks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "markeccles@google.com",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.2.0",
+    "crypto": "^1.0.1",
+    "firebase-admin": "^11.9.0"
+  }
+}
