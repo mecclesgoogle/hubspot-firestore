@@ -33,7 +33,7 @@ function validateV3RequestSignature(request, secret) {
 
   // Create the HMAC SHA-256 hash.
   const hmac = crypto.createHmac("sha256", secret);
-  hmac.update(request.method + request.originalUrl + request.body, "utf-8");
+  hmac.update(request.method + request.originalUrl + request.rawBody, "utf-8");
   const hash = hmac.digest("base64");
 
   // Compare the hash to the signature.
@@ -42,6 +42,7 @@ function validateV3RequestSignature(request, secret) {
 
 function insertDocuments(forms) {
   const collection = db.collection('forms');
+  // TODO(markeccles): Use the batch API.
   for (const form of forms) {
     collection.add(form);
   }
