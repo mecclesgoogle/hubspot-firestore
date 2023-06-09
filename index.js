@@ -33,7 +33,7 @@ function validateV3RequestSignature(request, secret) {
 
   // Create the HMAC SHA-256 hash.
   const hmac = crypto.createHmac("sha256", secret);
-  hmac.update(request.method + request.originalUrl + request.rawBody, "utf-8");
+  hmac.update(request.method + request.originalUrl + request.rawBody + timestamp, "utf-8");
   const hash = hmac.digest("base64");
 
   // Compare the hash to the signature.
